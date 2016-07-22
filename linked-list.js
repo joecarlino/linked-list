@@ -61,5 +61,7 @@ var ll = LinkedList;
 ll.push("A");
 ll.push("B");
 ll.push("C");
+ll.push("THIS WILL NOT SHOW");
+ll.pop();
 
 console.log(ll.toString()); 
