@@ -21,14 +21,36 @@ var LinkedList = (function() {
 
    var push = function(val) {
      var node = newNode(val);
+     var curr = head;
      if (head === null) {
        head = node;
        return;
     }
+     while (curr.next !== null) {
+       curr = curr.next;
+     }
+
+     curr.next = node;
   };
+
+   var pop = function() {
+     var curr = head;
+     if (head === null) {
+       return null;
+     }
+
+     while (curr.next.next !== null) {
+       curr = curr.next;
+     }
+     var node = curr.next;
+     curr.next = null;
+     
+     return node; 
+   };
 
   return {
     push: push,
+    pop: pop, 
     toString: toString
   };
 
@@ -37,5 +59,7 @@ var LinkedList = (function() {
 var ll = LinkedList;
 
 ll.push("A");
+ll.push("B");
+ll.push("C");
 
 console.log(ll.toString()); 
